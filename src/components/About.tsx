@@ -4,8 +4,16 @@ import { motion } from "framer-motion";
 import { styles } from '../styles';
 import { services } from '../constants';
 import { fadeIn, textVariant } from "../utils/motion.ts";
+import {SectionWrapper} from '../hoc'
+import React from "react";
 
-const ServiceCard = ({index, title, icon}) => {
+interface ServiceCardProps {
+    index: number;
+    title: string;
+    icon: string;
+}
+
+const ServiceCard: React.FC<ServiceCardProps> = ({ index, title, icon }) => {
     return (
         <Tilt className={"xs:w-[250px] w-full"}>
            <motion.div
@@ -68,18 +76,7 @@ const About = () => {
                 cupiditate delectus dolorem doloribus eum fuga ipsa iure porro similique, ullam, vel voluptatibus!
                 A ab asperiores atque cupiditate dolore eum facilis labore nostrum officiis placeat, porro quo saepe,
                 sapiente sed veritatis? Aliquid autem cum deserunt illo incidunt, laborum magni, molestias mollitia natus quo
-                velit veniam veritatis, voluptatibus! Consectetur libero sit velit. Ab accusamus aliquid animi
-                asperiores aut autem, consectetur corporis cumque delectus dignissimos distinctio dolor doloribus
-                ducimus earum enim et ex excepturi facere facilis illo incidunt ipsum laudantium maiores maxime
-                molestias mollitia nobis odio quae quas quia quidem sapiente soluta tenetur ut, voluptas voluptate
-                voluptatibus. Alias aperiam aut cupiditate dicta magnam molestiae numquam quod tempore veritatis voluptates.
-                Accusamus ad commodi eaque exercitationem molestias neque officiis possimus, quam quibusdam velit?
-                Corporis debitis distinctio dolor enim et
-                eveniet excepturi id ipsa nobis provident
-                quae quas quisquam, saepe sit veritatis voluptate
-                voluptatum. Autem dignissimos eum explicabo ipsa
-                ipsum, molestiae odio officia pariatur placeat velit
-                veniam!
+                velit veniam veritatis, voluptatibus!
             </motion.p>
 
             <div className="mt-20 flex flex-wrap gap-10">
@@ -92,4 +89,4 @@ const About = () => {
         </>
     )
 }
-export default About
+export default  SectionWrapper({Component: About},{idName: "about"})
